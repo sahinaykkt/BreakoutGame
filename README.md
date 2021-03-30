@@ -12,6 +12,8 @@
 
 - If you press the CPU button while starting the game, the computer will start playing the game.
 
+- As the bricks are broken, you will have a 10 percent chance of gaining 1 life.
+
 ## Github Pages
 
 You can check out this project at [GitHub Pages](https://sahinaykkt.github.io/BreakoutGame/)
