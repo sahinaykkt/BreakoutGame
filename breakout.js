@@ -215,11 +215,11 @@
                 ball.left <= brick.left + brick.width &&
                 !brick.removed
             ) { 
-                newLiveFunc();
-                if(randomNumber == 5){
+                randomNumber();
+                if(randomNumber() == 5){
                     lives += 1;
                     document.getElementById("lives").innerText = "Remaining lives: " + lives;
-                    alert("Congratulations! You earned a life.")
+                    alert("Congratulations! You earned a life. To continue click OK.")
                 }
 
                 ball.speedTop = -ball.speedTop;
@@ -367,8 +367,8 @@
         startGameLoop();
     }
 
-    function newLiveFunc(){
-        randomNumber = Math.floor((Math.random() * 10) + 1);
+    function randomNumber(){
+        return Math.floor((Math.random() * 10) + 1);
     }
 
     let startButton = document.createElement("button");
@@ -420,6 +420,9 @@
         for (let key in localStorage) {
             let loadInfo = localStorage.getItem(key)
             let loadObj = JSON.parse(loadInfo);
+            if(loadObj == null){
+                break;
+            }
             if (loadObj.point >= 0 && loadObj.username !== undefined) {
                 scoreEl.innerHTML += loadObj.username + ": " + loadObj.point + "<br>";
             }
