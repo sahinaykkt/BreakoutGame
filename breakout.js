@@ -214,7 +214,14 @@
                 ball.left + ball.width >= brick.left &&
                 ball.left <= brick.left + brick.width &&
                 !brick.removed
-            ) {
+            ) { 
+                newLiveFunc();
+                if(randomNumber == 5){
+                    lives += 1;
+                    document.getElementById("lives").innerText = "Remaining lives: " + lives;
+                    alert("Congratulations! You earned a life.")
+                }
+
                 ball.speedTop = -ball.speedTop;
                 brick.removed = true;
                 let b = document.getElementById('brick-' + i);
@@ -358,6 +365,10 @@
         setEvents();
         startGame();
         startGameLoop();
+    }
+
+    function newLiveFunc(){
+        randomNumber = Math.floor((Math.random() * 10) + 1);
     }
 
     let startButton = document.createElement("button");
